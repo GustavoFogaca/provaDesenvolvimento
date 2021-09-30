@@ -1,0 +1,33 @@
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Book } from "src/app/models/book";
+import { BookService } from "src/app/services/book.service";
+
+@Component({
+    selector: "app-create-book",
+    templateUrl: "./create-book.component.html",
+    styleUrls: ["./create-book.component.css"],
+})
+export class BookProductComponent implements OnInit {
+    nome!: string;
+    Escritor!: string;
+    Editora!: string;
+    
+
+    constructor(private service: BookService, private router: Router) {}
+
+    ngOnInit(): void {}
+
+    cadastrar(): void {
+        let book: Book = {
+            nome: this.nome,
+            escritor: this.escritor,
+            editora: this.editora,
+           
+        };
+        this.service.create(book).subscribe((book) => {
+            console.log(book);
+            this.router.navigate(["book/listar"]);
+        });
+    }
+}
