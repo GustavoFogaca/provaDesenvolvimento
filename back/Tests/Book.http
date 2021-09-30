@@ -1,0 +1,18 @@
+### Cadastrar book
+POST https://localhost:5001/api/book/create
+Content-Type: application/json
+
+{
+    "Nome" : "quarenta tons de choro",
+    "Escritor": "Anonimo",
+    "Editora":"SoJesusNaCausa"
+
+}
+
+### Listar livros
+GET https://localhost:5001/api/book/list
+
+
+### Buscar livros  pelo id
+GET https://localhost:5001/api/book/getbyid/1
+
